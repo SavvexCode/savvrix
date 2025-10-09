@@ -19,6 +19,9 @@ def get_response():
     user_input = request.json.get("message")
     ai_reply = get_ai_response(user_input)
     return jsonify({"reply": ai_reply})
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
 
 @app.route("/contact")
 def contact():
