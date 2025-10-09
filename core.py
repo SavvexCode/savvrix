@@ -107,7 +107,7 @@ def get_ai_response(user_input):
     if "savestar" in user_input:
         return "Thats the mind behind me...dope"
     if "Tamandani" in user_input:
-        return "Thats savrix's cru**"
+        return "Dont her yet..but Chakhaza kinda told me..."
     
 
     # ---------- FALLBACK ----------
