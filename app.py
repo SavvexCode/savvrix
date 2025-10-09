@@ -14,18 +14,21 @@ def home():
 def ai_page():
     return render_template('chat.html')
 
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+
 @app.route('/get_response', methods=['POST'])
 def get_response():
     user_input = request.json.get("message")
     ai_reply = get_ai_response(user_input)
     return jsonify({"reply": ai_reply})
-@app.route('/chat')
-def chat():
-    return render_template('chat.html')
 
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
 
 
 # ---------- RUN APP ----------
