@@ -1,154 +1,92 @@
-/* ===== Savrix AI Chat UI ===== */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 body {
-  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #001010, #000);
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 .chat-container {
-  width: 90%;
-  max-width: 800px;
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-  border-radius: 20px;
-  overflow: hidden;
-  background: rgba(15, 15, 15, 0.8);
-  box-shadow: 0 0 30px rgba(0, 255, 200, 0.2);
-  backdrop-filter: blur(15px);
-  animation: floatUp 0.8s ease-in-out;
+  width: 95%;
+  max-width: 450px;
+  background: rgba(0, 20, 20, 0.9);
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #00ffcc;
 }
 
-@keyframes floatUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.chat-header {
+.ai-title {
   text-align: center;
-  padding: 20px;
-  background: linear-gradient(90deg, #00f5a0, #00d9f5);
-  color: #000;
-}
-
-.chat-header .logo {
   font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
 }
 
-.chat-header .logo span {
-  color: #fff;
-  background: #000;
-  border-radius: 6px;
-  padding: 2px 8px;
-}
-
-.chat-header .subtitle {
-  font-size: 0.9rem;
-  color: #111;
-  margin-top: 5px;
+.ai-title span {
+  color: #00ffcc;
 }
 
 .chat-box {
-  flex: 1;
+  height: 350px;
   overflow-y: auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  scroll-behavior: smooth;
+  margin-top: 1rem;
+  background: rgba(0,0,0,0.5);
+  padding: 1rem;
+  border-radius: 10px;
 }
 
-.user-message,
-.bot-message {
-  padding: 12px 18px;
-  border-radius: 16px;
-  max-width: 75%;
-  word-wrap: break-word;
-  animation: fadeIn 0.3s ease;
+.user-msg, .bot-msg {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
 }
 
-.user-message {
-  align-self: flex-end;
-  background: linear-gradient(135deg, #00d9f5, #00f5a0);
+.user-msg {
+  background: #00ffcc;
   color: #000;
-  border-bottom-right-radius: 2px;
-  box-shadow: 0 0 10px rgba(0, 255, 200, 0.4);
+  align-self: flex-end;
 }
 
-.bot-message {
-  align-self: flex-start;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(0, 255, 200, 0.3);
-  color: #fff;
-  border-bottom-left-radius: 2px;
-  box-shadow: 0 0 8px rgba(0, 255, 200, 0.2);
-}
-
-.fade-in {
-  animation: fadeIn 0.4s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.bot-msg {
+  background: #111;
+  border: 1px solid #00ffcc;
 }
 
 .chat-input {
   display: flex;
-  align-items: center;
-  padding: 15px;
-  background: rgba(20, 20, 20, 0.9);
-  border-top: 1px solid rgba(0, 255, 200, 0.3);
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
 .chat-input input {
   flex: 1;
-  background: transparent;
+  padding: 0.6rem;
+  border-radius: 10px;
   border: none;
-  color: #fff;
-  font-size: 1rem;
-  padding: 10px;
   outline: none;
 }
 
 .chat-input button {
-  background: linear-gradient(135deg, #00f5a0, #00d9f5);
-  color: #000;
-  font-weight: bold;
+  background: #00ffcc;
   border: none;
-  padding: 10px 16px;
-  border-radius: 12px;
+  border-radius: 10px;
+  padding: 0 1rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(0, 255, 200, 0.3);
 }
 
 .chat-input button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(0, 255, 200, 0.6);
+  box-shadow: 0 0 10px #00ffcc;
 }
 
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00f5a0, #00d9f5);
-  border-radius: 10px;
+@media (max-width: 600px) {
+  .chat-container {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .chat-box {
+    height: 60vh;
+  }
 }

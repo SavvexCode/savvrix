@@ -1,156 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Savrix AI</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #000010, #050022, #0d002b);
-      color: #fff;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 10px;
-      color: #00ffff;
-      letter-spacing: 1px;
-      text-shadow: 0 0 10px #00ffff80;
-    }
-
-    p {
-      color: #aaa;
-      margin-bottom: 25px;
-      max-width: 500px;
-      font-size: 0.95em;
-    }
-
-    .contact-form {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(0, 255, 255, 0.2);
-      border-radius: 20px;
-      padding: 30px;
-      width: 90%;
-      max-width: 450px;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-      backdrop-filter: blur(5px);
-    }
-
-    label {
-      display: block;
-      text-align: left;
-      margin-bottom: 5px;
-      font-size: 0.9em;
-      color: #0ff;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 10px;
-      outline: none;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      font-size: 0.95em;
-    }
-
-    input[readonly] {
-      background: rgba(255, 255, 255, 0.05);
-      color: #0ff;
-    }
-
-    input::placeholder, textarea::placeholder {
-      color: #bbb;
-    }
-
-    .send-btn {
-      width: 100%;
-      background: #00ffff;
-      border: none;
-      padding: 12px;
-      font-size: 1em;
-      color: #000;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .send-btn:hover {
-      background: #00ccff;
-      box-shadow: 0 0 10px #00ffffaa;
-      transform: scale(1.02);
-    }
-
-    .back-link {
-      margin-top: 20px;
-      display: inline-block;
-      color: #0ff;
-      text-decoration: none;
-      font-size: 0.9em;
-      transition: color 0.3s;
-    }
-
-    .back-link:hover {
-      color: #fff;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 0.8em;
-      color: #666;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Savrix AI</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/contact.css') }}">
 </head>
 <body>
+    <div class="contact-wrapper">
+        <h1>Contact Savrix AI</h1>
+        <p class="intro">
+            Got a message, idea, or feedback? Drop it below and we’ll get back to you soon!
+        </p>
 
-  <h1>Contact Savrix AI</h1>
-  <p>Got a message, idea, or feedback? Drop it below and we’ll get back to you soon!</p>
+        <form class="contact-form">
+            <label>Your Name</label>
+            <input type="text" value="Ghost Savvix" readonly>
 
-  <form class="contact-form">
-    <label for="name">My Name</label>
-    <input type="text" id="name" name="name" value="Ghost Savvix" readonly>
+            <label>Your Email</label>
+            <input type="email" value="cozmicksavvy@gmail.com" readonly>
 
-    <label for="email">My Email</label>
-    <input type="email" id="email" name="email" value="cozmicksavvy@gmail.com" readonly>
+            <label>Phone Contact</label>
+            <input type="text" value="+265 ..." readonly>
 
-    <label for="phone">Phone Contact</label>
-    <input type="tel" id="phone" name="phone" placeholder="+265 ...">
+            <label>Your Message</label>
+            <textarea placeholder="Type your message here..."></textarea>
 
-    <label for="message">Your Message</label>
-    <textarea id="message" name="message" rows="5" placeholder="Type your message here..."></textarea>
+            <button type="submit">Send Message 🚀</button>
+        </form>
 
-    <button type="submit" class="send-btn">Send Message 🚀</button>
-  </form>
+        <div class="contrib-message">
+            <p>💠 Any contribution to this project will help us grow and will be appreciated.<br>
+            You can contact me through the email above. Thanks 🙏</p>
+        </div>
 
-  <div class="support-section">
-    <p><strong>support the Developer</strong><br>If you would like to support Savrix development, any contribution or feed back is appreciated!<br>You can reach me via the contacts above or <em>directrly through the app</em> -Thank you for helping this project grow!</p>
-  </div>
-
-  <a href="/" class="back-link">← Back to Home</a>
-
-  <footer>@Made by Savestar</footer>
-
-  <script>
-    const form = document.querySelector('.contact-form');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      alert("✅ Message sent successfully!\nWe'll get back to you soon, Ghost Savvix!");
-      form.reset();
-    });
-  </script>
-
+        <a href="/" class="back-link">← Back to Home</a>
+        <p class="signature">@Made by Savestar</p>
+    </div>
 </body>
 </html>

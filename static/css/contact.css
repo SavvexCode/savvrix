@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;600&display=swap');
+
+body {
+    background: radial-gradient(circle at 30% 30%, #031218, #000000);
+    color: #dbe9f1;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.contact-wrapper {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 221, 0.08);
+    border-radius: 18px;
+    padding: 30px;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0, 255, 200, 0.1);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1.2s ease;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 26px;
+    color: #00f5ff;
+    margin-bottom: 5px;
+}
+
+.intro {
+    color: #aeb7c1;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    color: #8fe9ff;
+    font-weight: 500;
+    margin: 12px 0 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 221, 0.1);
+    border-radius: 8px;
+    color: #e6f9ff;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+textarea {
+    min-height: 80px;
+    resize: none;
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    background: linear-gradient(90deg, #00f5ff, #00ffa3);
+    border: none;
+    border-radius: 10px;
+    color: #021010;
+    font-weight: 600;
+    padding: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #00ffa3, #00f5ff);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px #00ffa3;
+}
+
+.contrib-message {
+    background: rgba(255, 63, 163, 0.07);
+    border-left: 3px solid #ff3fa3;
+    padding: 14px;
+    border-radius: 8px;
+    margin-top: 25px;
+    font-size: 13px;
+    color: #ffcce5;
+    font-style: italic;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #00ffe0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.signature {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.03);
+    transition: color 0.3s ease;
+}
+
+.signature:hover {
+    color: #00ffd5;
+    text-shadow: 0 0 8px #00ffd5;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(15px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+@media (max-width: 600px) {
+    .contact-wrapper {
+        padding: 25px;
+        max-width: 95%;
+    }
+}

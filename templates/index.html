@@ -1,65 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Savrix — Campus Portal</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savrix AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <div class="page-bg"></div>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <!-- Logo (text-based so no image dependency) -->
-      <div class="logo">
-        <span class="logo-main">SAVRIX</span>
-        <span class="logo-dot">•</span>
-      </div>
-
-      <!-- Top-right small hidden sign (for visual balance) -->
-      <div class="top-right-badge" title="Savestar">Savrix AI</div>
-    </div>
-
-    <!-- Centered navigation -->
     <nav class="main-nav">
-      <button class="nav-btn nav-primary" onclick=location.href'/ai'">AI MODE</button>
-      <button class="nav-btn" onclick="location.href='/community'">community</button>
-      <button class="nav-btn"onclick="location.href='/Contact'">Contact</button>
+        <div class="logo">SAVRIX</div>
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="location.href='/ai'">AI MODE</button>
+            <button class="nav-btn" disabled>COMMUNITY</button>
+            <button class="nav-btn" disabled>RESOURCES</button>
+            <button class="nav-btn" onclick="location.href='/contact'">CONTACT</button>
+        </div>
     </nav>
 
+    <main class="hero">
+        <h1 class="hero-title">Welcome to <span>Savrix</span></h1>
+        <p class="hero-sub">Your AI-powered campus companion — fast, discreet, and ready to help.</p>
+        <button class="launch-btn" onclick="location.href='/ai'">⚡ Launch AI Mode</button>
+    </main>
 
-  <main class="hero">
-    <div class="hero-inner">
-      <h1 class="hero-title">Welcome to <span>Savrix</span></h1>
-      <p class="hero-sub">Your AI-powered campus companion — fast, discreet, and ready to help.</p>
-
-      <div class="hero-cta">
-        <button class="launch">launch AI Mode</button>
-      </div>
-      
-    </div>
-  </main>
-  <div class="auth-section">
-    <button class="auth-btn">Sign In</button>
-    <button class="auth-btn">sign Up</button>
-  </div>
-
-  <footer class="site-footer">
-    <!-- stealth signature: faint but reveals on hover -->
-    <div class="signature" title="Made by Savestar">@Made by Savestar</div>
-  </footer>
-
-  <script>
-    // subtle parallax on mouse move (lightweight)
-    (function(){
-      const bg = document.querySelector('.page-bg');
-      window.addEventListener('mousemove', e => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 10;
-        const y = (e.clientY / window.innerHeight - 0.5) * 6;
-        bg.style.transform = `translate3d(${x}px, ${y}px, 0) scale(1.02)`;
-      });
-    })();
-  </script>
+    <footer>
+        <p>Made by <span class="hidden-text">@savestarBanda</span></p>
+    </footer>
 </body>
 </html>
