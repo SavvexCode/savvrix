@@ -1,0 +1,109 @@
+body{
+    background: #0b0b0f;
+    color: #fff;
+    font-family: 'Poppins',sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.chat-container{
+    width: 90%;
+    max-width: 600px;
+    height: 80vh;
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.chat-box{
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* User bubbling*/
+.user-msg {
+    align-self: flex-end;
+    background: #00ffc6;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/*Bot bubble*/
+.bot-msg {
+    align-self: flex-start;
+    background: #1f1f2e;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 15px 15px 15px 0;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/*Input box*/
+.chat-input{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #111;
+    border-radius: 10px;
+}
+
+.chat-input input{
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: auto;
+    background: #222;
+    color: #fff;
+}
+
+.chat-input button {
+    background: #00ffc6;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor:auto;
+    color: #000;
+    font-weight: bold;
+}
+.back-home{
+    display: inline-block;
+    color: #00ffc6;
+    background: linear-gradient(90deg,#00ffc6, #00aaff);
+    color: #000;
+    border: none;
+    box-shadow: 0 0 15px rgba(0,255,198,0.5);   
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 10px; 
+    width: fit-content;
+    text-align: center;
+    position: relative;
+    left: 0;
+}
+
+.back-home:hover{
+    background: rgb(0,255,198,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgb(0,255,198,0.5 );
+}
+

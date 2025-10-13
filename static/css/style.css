@@ -1,9 +1,52 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #0a0a0a;
   color: #fff;
+  background-image: url('/static/css/bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
   overflow-x: hidden;
+  background-attachment: fixed; /* keeps image stable on scroll */
+}
+
+/* Adds a smooth dark overlay for better text readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: -1;
+
+}
+.hero-sub{
+  color: #fff;
+  font-size: 0.2rem;
+  text-shadow: 0 0 10px #ff00ff,0,0 20px #00ffff;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+.hero-sub{
+  font-size: 1.2rem;
+  color: #ddd;
+  text-shadow: 0 0 6px rgb(0,0,0,0.8);
+  font-weight: 400;
+  margin-top: 2rem;
 }
 
 .main-nav {
@@ -97,5 +140,48 @@ footer {
   }
   .launch-btn {
     width: 90%;
+  }
+}
+
+@keyframes glow{
+  from{
+    text-shadow: 0 0 5px #ff00ff,0 0 10px #00ffff,0 0 20px #00ffff;
+  }
+  to{
+    text-shadow: 0 0 20px #ff00ff,0 0 30px #00ffff;
+  }
+}
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center top;
+    background-attachment: scroll; /* prevents weird zooming on phones */
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .nav-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav-btn {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .launch-btn {
+    width: 80%;
+    font-size: 1rem;
   }
 }

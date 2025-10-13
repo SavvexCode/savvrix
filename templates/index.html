@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savrix AI</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Savrix AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
+
 <body>
+  <div class="container">
     <nav class="main-nav">
-        <div class="logo">SAVRIX</div>
-        <div class="nav-buttons">
-            <button class="nav-btn" onclick="location.href='/ai'">AI MODE</button>
-            <button class="nav-btn" disabled>COMMUNITY</button>
-            <button class="nav-btn" disabled>RESOURCES</button>
-            <button class="nav-btn" onclick="location.href='/contact'">CONTACT</button>
-        </div>
+      <div class="logo">SAVARIX</div>
+      <div class="nav-buttons">
+        <button class="nav-btn" onclick="location.href='/ai'">AI MODE</button>
+        <button class="nav-btn" onclick="comingSoon()">COMMUNITY</button>
+        <button class="nav-btn" onclick="comingSoon()">RESOURCES</button>
+        <button class="nav-btn" onclick="location.href='/contact'">CONTACT</button>
+        <!--<button class="nav-btn" onclick="comingSoon()">SUBSCRIBE</button>-->
+      </div>
     </nav>
 
     <main class="hero">
-        <h1 class="hero-title">Welcome to <span>Savrix</span></h1>
-        <p class="hero-sub">Your AI-powered campus companion — fast, discreet, and ready to help.</p>
-        <button class="launch-btn" onclick="location.href='/ai'">⚡ Launch AI Mode</button>
+      <h1 class="hero-title">Welcome to <span>Savrix</span></h1>
+      <p class="hero-sub">
+        Your AI-powered campus companion — fast, discreet and ready to help.
+      </p>
+      <button class="launch-btn" onclick="location.href='/ai'">⚡ Launch AI Mode</button>
     </main>
 
     <footer>
-        <p>Made by <span class="hidden-text">@savestarBanda</span></p>
+      <p>Made by <span class="hidden-text">@savestar</span></p>
     </footer>
+  </div>
+
+  <script>
+    function comingSoon() {
+      alert("This feature is coming soon. Stay tuned!");
+    }
+  </script>
 </body>
 </html>

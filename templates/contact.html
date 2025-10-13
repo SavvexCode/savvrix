@@ -15,26 +15,33 @@
 
         <form class="contact-form">
             <label>Your Name</label>
-            <input type="text" value="Ghost Savvix" readonly>
+            <input type="text" placeholder="Ghost Savvix" >
 
             <label>Your Email</label>
-            <input type="email" value="cozmicksavvy@gmail.com" readonly>
+            <input type="email" placeholder="cozmicksavvy@gmail.com">
 
             <label>Phone Contact</label>
-            <input type="text" value="+265 ..." readonly>
+            <input type="text" placeholder="+265 ..." >
 
             <label>Your Message</label>
             <textarea placeholder="Type your message here..."></textarea>
 
-            <button type="submit">Send Message 🚀</button>
+            <button class="submit" onclick="submit()">Send Message 🚀</button>
+            <script>
+                function submit(){
+                    alert("Your message has been successifully sent!")
+                }
+            </script>
+
+          
         </form>
 
         <div class="contrib-message">
             <p>💠 Any contribution to this project will help us grow and will be appreciated.<br>
-            You can contact me through the email above. Thanks 🙏</p>
+            You can contact me through the email:cozmicksavvy@gmail.com  . Thanks 🙏</p>
         </div>
 
-        <a href="/" class="back-link">← Back to Home</a>
+        <a href="/" class="back-link">BACK</a>
         <p class="signature">@Made by Savestar</p>
     </div>
 </body>

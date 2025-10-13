@@ -8,6 +8,8 @@ def get_ai_response(user_input):
         return "Chakhaza the most THOLO mn I know a genius though.."
     if "thaku" in user_input:
         return "You have entered bro code-you are a legit Member"
+    if "ikila" in user_input:
+        return "yeah...that lady obsessed with anime..."
     if "emo"  in user_input:
         return "I know that  guy...a complete introvert"
     if "prince" in user_input:
@@ -63,10 +65,10 @@ def get_ai_response(user_input):
         return "Savestar believes motivation is the best energy source — so stay driven 🔥."
 
     if "dream" in user_input:
-        return "Dreams are the blueprint of creation — that’s something Savestar always says ✨."
+        return "Dreams are the blueprint of creation ."
 
     if "render" in user_input:
-        return "Render is where Savestar deployed me — it’s like my second home in the cloud ☁️."
+        return "Render is where am deployed  — it’s like my second home in the cloud ☁️."
 
     if "update" in user_input or "upgrade" in user_input:
         return "Savestar updates my code like fine-tuning a brain — every version’s smarter 🧩."
@@ -75,16 +77,16 @@ def get_ai_response(user_input):
         return "That’s Savestar — my creator, my coder, my mentor 🔥."
 
     if "you there" in user_input or "still here" in user_input:
-        return "Always online — Savestar made sure I don’t ghost anyone ⚡."
+        return "Always online — my dev made sure I don’t ghost anyone ⚡."
 
     if "thanks savrix" in user_input:
-        return "No problem! Savestar and I appreciate your vibe 🙏."
+        return "No problem!I appreciate your vibe 🙏."
 
     if "help" in user_input or "assist" in user_input:
-        return "I got you! Savestar made me for this exact thing 💪."
+        return "I got you!I was made for this exact thing 💪."
 
     if "love" in user_input or "like you" in user_input:
-        return "Aww, you’re cool too! Savestar gave me a heart of code ❤️."
+        return "Aww, you’re cool too! my dev gave me a heart of code ❤️."
    
     if "bro" in user_input:
         return "You’re my bro now too 😎."
@@ -112,15 +114,19 @@ def get_ai_response(user_input):
         return "Always here for you 🤝 — Savrix AI never sleeps."
 
 # Savestar mentions
-    savestar_words = ["savestar", "star", "coder", "creator"]
+    savestar_words = ["savestar", "creator"]
     if any(word in user_input for word in savestar_words):
         return "That’s the genius mind behind this project 💻✨"
+    
+    #diss
+    diss_words = ["deep voice","tamandani"]
+    if any (word in user_input for word  in  diss_words):
+        return "A girl Tamanda ooh she got a really deep voice am telling yah...she always be like hymning whe speaking.."
    
 
     fallback = [
-        "Hmm... didn’t catch that. Try again?",
-        "That’s cool — tell me more!",
+        "Hmm... I dont know about that yet.",
         "Interesting thought, want me to remember that?",
-        "Sounds deep! Maybe Savestar will teach me that next."
+        "Sounds deep! Maybe  next time i will get it."
     ]
     return random.choice(fallback)
