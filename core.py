@@ -94,7 +94,7 @@ def get_ai_response(user_input):
         return "Always here for you 🙌."
 
      # Greeting responses
-    greetings = ["hi", "hello", "hey", "yo", "hola", "sup", "wassup", "morning", "evening"]
+    greetings = ["hi", "hello", "hey", "yo", "hola", "sup", "wassup", "morning", "evening","hy"]
     if any(word in user_input for word in greetings):
         return "Hey there! 👋 Savrix AI here — how’s your day going?"
 
@@ -121,7 +121,7 @@ def get_ai_response(user_input):
     #diss
     diss_words = ["deep voice","tamandani"]
     if any (word in user_input for word  in  diss_words):
-        return "A girl Tamanda ooh she got a really deep voice am telling yah...she always be like hymning whe speaking.."
+        return "A girl Tamanda ooh she got a really deep voice am telling yah...she always be like hymning when speaking.."
    
 
     fallback = [
