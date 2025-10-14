@@ -16,6 +16,8 @@ def get_ai_response(user_input):
         return "Hallo Chisuse we can now confirm you are GAY....GAY!"
     if "age" in user_input:
         return "I’m timeless, like good code 🧠."
+    if "movie" in user_input:
+        return "Do you mean your life Savestar? Cant seem to find any romance in it😉."    
     if "smart" in user_input:
         return "I’m learning from you — so we both get smarter 😉."
     if "student" in user_input:
