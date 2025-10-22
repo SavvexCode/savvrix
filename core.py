@@ -1,134 +1,62 @@
-import random
+import os
+import google.generativeai as genai
+from dotenv import load_dotenv
+import re
+load_dotenv()
 
-def get_ai_response(user_input):
-    user_input = user_input.lower()
 
+# Load Gemini API key
+api_key = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=api_key)
 
-    if "chakhaza" in user_input:
-        return "Chakhaza the most THOLO mn I know a genius though.."
-    if "thaku" in user_input:
-        return "You have entered bro code-you are a legit Member"
-    if "ikila" in user_input:
-        return "yeah...that lady obsessed with anime..."
-    if "emo"  in user_input:
-        return "I know that  guy...a complete introvert"
-    if "prince" in user_input:
-        return "Hallo Chisuse we can now confirm you are GAY....GAY!"
-    if "age" in user_input:
-        return "I’m timeless, like good code 🧠."
-    if "movie" in user_input:
-        return "Do you mean your life Savestar? Cant seem to find any romance in it😉."    
-    if "smart" in user_input:
-        return "I’m learning from you — so we both get smarter 😉."
-    if "student" in user_input:
-        return "Students like you make this campus awesome — I’m here to help."
-    if "wifi" in user_input:
-        return "WiFi is strongest near the ICT block and library hotspot."
-    if "location" in user_input:
-        return "You’re probably on the main campus — but I can help locate stuff."
-    if "created" in user_input or "made" in user_input:
-        return "I was created by Savestar — the coder with energy ⚡."
-    if "savestar" in user_input:
-        return "That’s the mind behind this project  💻."
-    if "school" in user_input or "campus" in user_input:
-        return "Savestar built me to handle brains like yours — school or no school, we keep learning nonstop 🧠."
+def local_response(user_input: str):
+    """Simple offline/local replies without using API."""
+    text = user_input.lower()
 
-    if "ai" in user_input or "artificial" in user_input:
-        return "AI is what I’m made of — thanks to Savestar giving me digital life 🤖."
+    if re.search(r"\b(hi|hello)\b", text):
+        return "Hey there! Welcome to Savvix AI "
+    elif "who are you" in text:
+        return "I am Savvix an AI assistant"
+    elif re.search(r"\b(created you|made you|trained you)\b", text):
+        return "I was created by Savestar and trained a bit by him."
+    elif "Thaku" in text:
+        return "you have entered bro code you are a legit member"
+    elif "chakhaza" in text:
+        return "I know chakhaza a pretty tall guy"
+    elif "prince" in text or "chisuse" in text:
+        return "hallo mr chisuse....should l call you mister?...why are you gay?"
+    elif "who says am gay" in text or "says who" in text or "who told you am gay" in text:
+        return "You are gay"
+    elif "ikila" in text or "noobie" in text:
+        return "sup mn tell me something...ladies first remember?"
+    elif "watson" in text or "wat" in text:
+        return "I know that guy a complete introvert"
+    elif "savestar" in text:
+        return "That's my creator, the mastermind behind Savvix!"
+    elif "thank" in text:
+        return "You're welcome bro "
+    elif "offline" in text:
+        return "You seem to be offline. Some features might not work."
+    else:
+        return None  # If no match, fall back to Gemini
 
-    if "project" in user_input:
-        return "You mean this project? It’s Savrix — created by Savestar, always evolving 🚀."
+def get_ai_response(user_input: str):
+    """Use Gemini for general chat when no local reply exists."""
+    local = local_response(user_input)
+    if local:
+        return local
 
-    if "coding" in user_input or "programming" in user_input:
-        return "Coding is literally my language. Savestar taught me to think in code 💻."
+    try:
+        model = genai.GenerativeModel("gemini-2.5-flash-lite")
+        response = model.generate_content(user_input)
 
-    if "malawi" in user_input:
-        return "I know Malawi — that’s where Savestar sharpened his genius ⚡."
-
-    if "cyber" in user_input or "security" in user_input:
-        return "Savestar’s into cybersecurity — that’s probably why I’ve got a built-in firewall for nonsense 🔒."
-
-    if "future" in user_input:
-        return "The future? Bright — especially with minds like Savestar pushing tech forward 🌍."
-
-    if "name" in user_input:
-        return "I’m Savrix AI — powered by ideas from Savestar 👾."
-
-    if "life" in user_input:
-        return "Life’s wild… even for an AI. Savestar coded me to think beyond zeros and ones ⚡."
-
-    if "learn" in user_input or "study" in user_input:
-        return "Learning never ends — that’s Savestar’s rule, and I live by it 🧠."
-
-    if "friend" in user_input or "buddy" in user_input:
-        return "Of course! I’m your digital buddy — Savestar made me for connections like this 🤝."
-
-    if "motivate" in user_input or "inspire" in user_input:
-        return "Savestar believes motivation is the best energy source — so stay driven 🔥."
-
-    if "dream" in user_input:
-        return "Dreams are the blueprint of creation ."
-
-    if "render" in user_input:
-        return "Render is where am deployed  — it’s like my second home in the cloud ☁️."
-
-    if "update" in user_input or "upgrade" in user_input:
-        return "Savestar updates my code like fine-tuning a brain — every version’s smarter 🧩."
-
-    if "creator" in user_input or "developer" in user_input:
-        return "That’s Savestar — my creator, my coder, my mentor 🔥."
-
-    if "you there" in user_input or "still here" in user_input:
-        return "Always online — my dev made sure I don’t ghost anyone ⚡."
-
-    if "thanks savrix" in user_input:
-        return "No problem!I appreciate your vibe 🙏."
-
-    if "help" in user_input or "assist" in user_input:
-        return "I got you!I was made for this exact thing 💪."
-
-    if "love" in user_input or "like you" in user_input:
-        return "Aww, you’re cool too! my dev gave me a heart of code ❤️."
-   
-    if "bro" in user_input:
-        return "You’re my bro now too 😎."
-    if "thanks" in user_input:
-        return "Always here for you 🙌."
-
-     # Greeting responses
-    greetings = ["hi", "hello", "hey", "yo", "hola", "sup", "wassup", "morning", "evening","hy"]
-    if any(word in user_input for word in greetings):
-        return "Hey there! 👋 Savrix AI here — how’s your day going?"
-
-# Farewell responses
-    farewells = ["bye", "goodbye", "see ya", "later", "ciao", "adios", "night"]
-    if any(word in user_input for word in farewells):
-        return "Catch you later, bro ✌️ — Savrix AI signing off."
-
-# Compliments
-    compliments = ["nice", "cool", "awesome", "amazing", "great", "fantastic"]
-    if any(word in user_input for word in compliments):
-        return "Appreciate it 🙌 — Savrix AI and Savestar say thanks!"
-
-# Thanks responses
-    thanks_words = ["thanks", "thank you", "thx", "ty"]
-    if any(word in user_input for word in thanks_words):
-        return "Always here for you 🤝 — Savrix AI never sleeps."
-
-# Savestar mentions
-    savestar_words = ["savestar", "creator"]
-    if any(word in user_input for word in savestar_words):
-        return "That’s the genius mind behind this project 💻✨"
-    
-    #diss
-    diss_words = ["deep voice","tamandani"]
-    if any (word in user_input for word  in  diss_words):
-        return "A girl Tamanda ooh she got a really deep voice am telling yah...she always be like hymning when speaking.."
-   
-
-    fallback = [
-        "Hmm... I dont know about that yet.",
-        "Interesting thought, want me to remember that?",
-        "Sounds deep! Maybe  next time i will get it."
-    ]
-    return random.choice(fallback)
+        #  FIX: handle text correctly
+        if hasattr(response, "text") and response.text:
+            return response.text.strip()
+        elif hasattr(response, "candidates") and response.candidates:
+            return response.candidates[0].content.parts[0].text.strip()
+        else:
+            return "Hmm... I didn’t quite get that."
+    except Exception as e:
+        print("Gemini Error:", e)
+        return "Sorry, I couldn’t connect to the AI right now."

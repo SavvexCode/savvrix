@@ -8,18 +8,23 @@
 </head>
 <body>
     <div class="chat-container">
+        <!-- Back Button -->
+        <a href="/" class="back-btn">&lt;</a>
+
+        <!-- AI Title -->
         <h1 class="ai-title">Savvix<span>AI</span></h1>
         <p class="ai-sub">Smart. Fast. Built for Campus Life.</p>
 
+        <!-- Chat Box -->
         <div id="chat-box" class="chat-box">
-            <div class="bot-msg">👋 Hey there! I'm Savrix AI. How can I help you today?</div>
+            <div class="bot-msg">👋 Hey there! I'm Savvix AI. How can I help you today?</div>
         </div>
 
+        <!-- Chat Input -->
         <div class="chat-input">
-            <input id="user-input" type="text" placeholder="Type your message..." />
+            <input id="user-input" type="text" placeholder="Type your message...">
             <button id="send-btn">➤</button>
         </div>
-        <a href="/" class="back-home">BACK</a>
     </div>
 
     <script>
@@ -27,30 +32,65 @@
         const input = document.getElementById("user-input");
         const chatBox = document.getElementById("chat-box");
 
-        async function sendMessage() {
-            const message = input.value.trim();
-            if (!message) return;
-            const userDiv = document.createElement("div");
-            userDiv.className = "user-msg";
-            userDiv.textContent = message;
-            chatBox.appendChild(userDiv);
-            input.value = "";
+        // Send message when button clicked
+        sendBtn.addEventListener("click", sendMessage);
+        // Also send when Enter key is pressed
+        input.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") sendMessage();
+        });
 
-            const response = await fetch("/chat", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({message})
-            });
-            const data = await response.json();
-            const botDiv = document.createElement("div");
-            botDiv.className = "bot-msg";
-            botDiv.textContent = data.response;
-            chatBox.appendChild(botDiv);
+        function showTyping() {
+            const typingDiv = document.createElement("div");
+            typingDiv.className = "bot-msg typing";
+            typingDiv.innerHTML = "<span></span><span></span><span></span>";
+            chatBox.appendChild(typingDiv);
             chatBox.scrollTop = chatBox.scrollHeight;
+            return typingDiv;
         }
 
-        sendBtn.addEventListener("click", sendMessage);
-        input.addEventListener("keypress", e => { if (e.key === "Enter") sendMessage(); });
+        async function sendMessage() {
+            const userMsg = input.value.trim();
+            if (!userMsg) return;
+
+            // Display user's message
+            const userDiv = document.createElement("div");
+            userDiv.className = "user-msg";
+            userDiv.textContent = userMsg;
+            chatBox.appendChild(userDiv);
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            input.value = "";
+            const typingIndicator = showTyping();
+
+
+            // Send to backend
+            try {
+                const res = await fetch("/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: userMsg })
+                });
+
+                const data = await res.json();
+                typingIndicator.remove();
+
+                // Display AI response
+                const botDiv = document.createElement("div");
+                botDiv.className = "bot-msg";
+                botDiv.textContent = data.response;
+                chatBox.appendChild(botDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+
+                chatBox.scrollTop = chatBox.scrollHeight;
+            } catch (err) {
+                console.error("Error:", err);
+                const botDiv = document.createElement("div");
+                botDiv.className = "bot-msg";
+                botDiv.textContent = "⚠️ Connection error. Please try again.";
+                chatBox.appendChild(botDiv);
+            }
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Savvix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+</head>
+<body>
+
+  <!-- ===== Top Navigation ===== -->
+  <header class="top-nav">
+    <h2 class="logo">SAVVIX</h2>
+    <button id="aboutBtn" class="about-btn">About</button>
+  </header>
+
+  <!-- ===== Main Container ===== -->
+  <main class="container">
+    <section class="form-section">
+      <!-- Sign In box -->
+      <div class="form-box sign-in">
+        <h1>Sign In</h1>
+        <form>
+          <input type="text" placeholder="Username" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit" class="btn-primary">Sign In</button>
+        </form>
+      </div>
+
+      <!-- Welcome / Sign Up box -->
+      <div class="form-box welcome">
+        <h1>Welcome!</h1>
+        <p>Join Savvix to unlock AI-powered tools and community features.</p>
+        <button class="btn-secondary">Sign Up</button>
+        <a href="{{ url_for('home') }}" class="btn-guest">Continue as Guest</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== About Modal ===== -->
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>About Savvix</h2>
+      <p>
+        Savvix is your all-in-one AI companion — designed to connect people,
+        simplify tasks, and blend smart technology into daily life.
+      </p>
+      <p>
+        Whether you want to chat, explore, or build — Savvix adapts to your world.
+      </p>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/landing.js') }}"></script>
+</body>
+</html>
